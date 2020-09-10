@@ -10,7 +10,7 @@ Projeto [IMC]
 
 - `yarn` ou - `npm i`
 
-## instalar os pluguins
+## instalar os plugins
 
 - `eslint e prettier`
 
