@@ -3,6 +3,7 @@ const logger = require('../util/log');
 
 class ServiceIMC {
   async calculateIMC(height, weight) {
+    logger.info('Calling Services');
     const imcValue = this.calculate(height, weight);
     const scoreValue = this.score(imcValue);
     return this.buildResponse(scoreValue, imcValue);
