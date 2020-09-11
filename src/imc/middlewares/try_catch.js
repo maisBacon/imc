@@ -1,8 +1,4 @@
 class AsyncMiddleware {
-  constructor(handler) {
-    this.tryCatch(handler);
-  }
-
   tryCatch(handler) {
     return async (req, res, next) => {
       try {
