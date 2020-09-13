@@ -2,13 +2,17 @@ const service = require('../service/service-imc');
 
 describe('ServiceIMC', () => {
   it('calculateIMC', async () => {
-    const mock = jest.fn();
-    service.calculate = mock.mockReturnValue(25);
-    service.score = mock.mockReturnValue({ index: 'peso normal' });
     const result = await service.calculateIMC(168, 80);
-    expect(result).resolves.toMatchObject({
-      score: 'acima do peso',
+    expect(Promise.resolve(result)).resolves.toStrictEqual({
       imc: '28.3',
+      score: 'acima do peso',
+    });
+  });
+  it('calculateIMC', async () => {
+    const result = await service.calculateIMC(168, 800);
+    expect(Promise.resolve(result)).resolves.toStrictEqual({
+      imc: '283.4',
+      score: null,
     });
   });
 });
