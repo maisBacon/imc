@@ -17,9 +17,11 @@ Projeto [IMC]
 ## Rodando o projeto
 
 - `yarn start`: inicia o backend.
-  ou
-- `npm start`: inicia o backend.
+
+## Rodando o projeto
+
+- `yarn test`
 
 ## Rodando DEBUG
 
-Rodar desenvolvimento com `yarn dev` ou `npm dev` depois (ctrl + shift + d) e selecionar o arquivo de configuração 'Debug' em seguida clickar em Run
+Rodar desenvolvimento com `yarn dev` depois (ctrl + shift + d) e selecionar o arquivo de configuração 'Debug' em seguida clickar em Run
