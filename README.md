@@ -18,7 +18,7 @@ Projeto [IMC]
 
 - `yarn start`: inicia o backend.
 
-## Rodando o projeto
+## Rodando o testes
 
 - `yarn test`
 
