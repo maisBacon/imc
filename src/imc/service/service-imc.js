@@ -5,8 +5,8 @@ class ServiceIMC {
   async calculateIMC(height, weight) {
     logger.info('Calling Services');
     const imc = this.calculate(height, weight);
-    const { index } = this.score(imc);
-    return { index, imc };
+    const score = this.score(imc);
+    return { score, imc };
   }
 
   calculate(height, weight) {
@@ -17,9 +17,10 @@ class ServiceIMC {
 
   score(imc) {
     logger.info('calculate score');
-    return constants.imcRange.find(({ min, max, index }) => {
-      return imc > min && imc < max && index;
+    const result = constants.imcRange.find(({ min, max }) => {
+      return imc > min && imc < max;
     });
+    return result ? result.index : null;
   }
 }
 
