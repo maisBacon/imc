@@ -9,12 +9,12 @@ class ControllerIMC {
 
     const response = await service.calculateIMC(height, weight);
 
-    if (!response.score) {
+    if (!response.index) {
       logger.error(constants.invalidParams);
       return res.status(400).send({ message: constants.invalidParams });
     }
 
-    logger.info(response.score);
+    logger.info(response.index);
     res.status(200).send({ result: response });
   }
 }
