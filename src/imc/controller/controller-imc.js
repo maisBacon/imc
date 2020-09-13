@@ -3,24 +3,19 @@ const service = require('../service/service-imc');
 const constants = require('../util/constants');
 
 class ControllerIMC {
-  async getIMC(req, res, next) {
+  async getIMC(req, res) {
     const { height, weight } = req.query;
     logger.info(`height ${height} and weight ${weight}`);
-    try {
-      logger.info('Calling Services');
-      const response = await service.calculateIMC(height, weight);
 
-      if (!response.score) {
-        logger.error(constants.invalidParams);
-        return res.status(400).send({ message: constants.invalidParams });
-      }
+    const response = await service.calculateIMC(height, weight);
 
-      logger.info(response.score);
-      res.status(200).send({ result: response });
-      return next();
-    } catch (err) {
-      return next(err);
+    if (!response.score) {
+      logger.error(constants.invalidParams);
+      return res.status(400).send({ message: constants.invalidParams });
     }
+
+    logger.info(response.score);
+    res.status(200).send({ result: response });
   }
 }
 
